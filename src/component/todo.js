@@ -6,7 +6,8 @@ const Todo = () => {
   const [inputDescription, setInputDescription] = useState("");
   const [items, setItems] = useState([]);
   const addItem = () => {
-    if (!inputDescription) {
+    if (!inputTitle || !inputDescription) {
+      alert("Please fill both Title and Description!");
     } else {
       setItems([...items, inputDescription]);
 
