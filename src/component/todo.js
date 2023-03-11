@@ -15,6 +15,9 @@ const Todo = () => {
       setInputDescription("");
     }
   };
+  const deleteAll = ()=>{
+    setItems([]);
+  }
   return (
     <>
       <div className="mainContiner">
@@ -41,7 +44,7 @@ const Todo = () => {
             </div>
             <div className="buttonWrapper flex">
               <button onClick={addItem}>Add</button>
-              <button>Delete All</button>
+              <button onClick={deleteAll}>Delete All</button>
             </div>
           </div>
           <div className="showItems flex">
