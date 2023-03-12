@@ -18,6 +18,14 @@ const Todo = () => {
       setInputDescription("");
     }
   };
+
+  const deleteItem = (id) => {
+    const updatedItems = items.filter((elem, ind) => {
+      return ind !== id;
+    });
+    setItems(updatedItems);
+  };
+
   const deleteAll = () => {
     setItems([]);
   };
@@ -56,7 +64,10 @@ const Todo = () => {
               return (
                 <div className="eachItem" key={ind}>
                   <span className="deleteItem">
-                    <i className="fa fa-close"></i>
+                    <i
+                      className="fa fa-close"
+                      onClick={() => deleteItem(ind)}
+                    ></i>
                   </span>
                   <h2>{obj.Title}</h2>
                   <h4>{obj.Description}</h4>
