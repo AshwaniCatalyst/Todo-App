@@ -37,8 +37,14 @@ const Todo = () => {
   };
 
   const deleteAllTasks = () => {
+    if(items.length===0)
+    {
+      alert("No tasks to delete!");
+    }
+    else{
     setItems([]);
     alert("All tasks have been removed successfully!");
+    }
   };
   return (
     <>
