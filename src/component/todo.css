@@ -2,6 +2,11 @@
     margin: 0;
     padding: 0;
     border: none;
+    transition: 0.4s all ease-in-out;
+}
+
+textarea{
+    resize: none;
 }
 
 .textField{
@@ -75,4 +80,15 @@
 position: absolute;
 right:15px;
 top: 7px;
+}
+
+.fa-close{
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.fa-close:hover{
+    transition: 0.4s all ease-in-out;
+    color: rgb(214, 18, 18);
+    font-size: 20px;
 }

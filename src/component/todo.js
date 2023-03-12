@@ -5,19 +5,22 @@ const Todo = () => {
   const [inputTitle, setInputTitle] = useState("");
   const [inputDescription, setInputDescription] = useState("");
   const [items, setItems] = useState([]);
+
   const addItem = () => {
     if (!inputTitle || !inputDescription) {
       alert("Please fill both Title and Description!");
     } else {
-      setItems([...items, inputDescription]);
-
+      let taskObj = {};
+      taskObj["Title"] = inputTitle;
+      taskObj["Description"] = inputDescription;
+      setItems([...items, taskObj]);
       setInputTitle("");
       setInputDescription("");
     }
   };
-  const deleteAll = ()=>{
+  const deleteAll = () => {
     setItems([]);
-  }
+  };
   return (
     <>
       <div className="mainContiner">
@@ -49,11 +52,14 @@ const Todo = () => {
           </div>
           <div className="showItems flex">
             {}
-            {items.map((elem, ind) => {
+            {items.map((obj, ind) => {
               return (
                 <div className="eachItem" key={ind}>
-                  <span className="deleteItem">X</span>
-                  <h2>{elem}</h2>
+                  <span className="deleteItem">
+                    <i className="fa fa-close"></i>
+                  </span>
+                  <h2>{obj.Title}</h2>
+                  <h4>{obj.Description}</h4>
                 </div>
               );
             })}
