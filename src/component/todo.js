@@ -1,11 +1,16 @@
 import "./todo.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Todo = () => {
   const [inputTitle, setInputTitle] = useState("");
   const [inputDescription, setInputDescription] = useState("");
   const [items, setItems] = useState([]);
-
+  useEffect(() => {
+    if (items.length === 0) {
+    } else {
+      alert("Task added successfully!");
+    }
+  }, [items]);
   const addItem = () => {
     if (!inputTitle || !inputDescription) {
       alert("Please fill both Title and Description!");
@@ -19,14 +24,14 @@ const Todo = () => {
     }
   };
 
-  const deleteItem = (id) => {
+  const deleteTask = (id) => {
     const updatedItems = items.filter((elem, ind) => {
       return ind !== id;
     });
     setItems(updatedItems);
   };
 
-  const deleteAll = () => {
+  const deleteAllTasks = () => {
     setItems([]);
   };
   return (
@@ -34,9 +39,11 @@ const Todo = () => {
       <div className="mainContiner">
         <div className="childContainer flex">
           <div className="appHeading flex">
-            <h1>Aaj Ka Kaam</h1>
+            <h1>
+              <span className="appTitle">Aaj Ka Kaam</span>
+            </h1>
           </div>
-          <div className="addItems flex">
+          <div className="addTasks flex">
             <div className="inputTextWrapper flex ">
               <input
                 type="text"
@@ -55,18 +62,18 @@ const Todo = () => {
             </div>
             <div className="buttonWrapper flex">
               <button onClick={addItem}>Add</button>
-              <button onClick={deleteAll}>Delete All</button>
+              <button onClick={deleteAllTasks}>Delete All</button>
             </div>
           </div>
-          <div className="showItems flex">
+          <div className="showTasks flex">
             {}
             {items.map((obj, ind) => {
               return (
-                <div className="eachItem" key={ind}>
-                  <span className="deleteItem">
+                <div className="eachTask flex" key={ind}>
+                  <span className="deleteTask">
                     <i
                       className="fa fa-close"
-                      onClick={() => deleteItem(ind)}
+                      onClick={() => deleteTask(ind)}
                     ></i>
                   </span>
                   <h2>{obj.Title}</h2>
