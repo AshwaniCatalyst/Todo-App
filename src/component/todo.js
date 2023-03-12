@@ -24,6 +24,11 @@ const Todo = () => {
     }
   };
 
+  const reset =() =>{
+    setInputTitle("");
+    setInputDescription("");
+  }
+
   const deleteTask = (id) => {
     const updatedItems = items.filter((elem, ind) => {
       return ind !== id;
@@ -62,6 +67,7 @@ const Todo = () => {
             </div>
             <div className="buttonWrapper flex">
               <button onClick={addItem}>Add</button>
+              <button onClick={reset}>Reset</button>
               <button onClick={deleteAllTasks}>Delete All</button>
             </div>
           </div>
