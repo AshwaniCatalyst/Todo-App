@@ -38,6 +38,7 @@ const Todo = () => {
 
   const deleteAllTasks = () => {
     setItems([]);
+    alert("All tasks have been removed successfully!");
   };
   return (
     <>
