@@ -8,7 +8,7 @@ const Todo = () => {
   useEffect(() => {
     if (items.length === 0) {
     } else {
-      alert("Task added successfully!");
+      alert("Tasks updated successfully!");
     }
   }, [items]);
   const addItem = () => {
