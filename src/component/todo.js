@@ -3,17 +3,17 @@ import React, { useState, useEffect } from "react";
 
 const Todo = () => {
   const [inputTitle, setInputTitle] = useState("");
-  const [inputDescription, setInputDescription] = useState("");
+  const [inputDescription, setInputDescription] = useState([]);
   const [items, setItems] = useState([]);
   useEffect(() => {
     if (items.length === 0) {
     } else {
-      alert("Tasks updated successfully!");
+      // alert("Tasks updated successfully!");
     }
   }, [items]);
   const addItem = () => {
     if (!inputTitle || !inputDescription) {
-      alert("Please fill both Title and Description!");
+      // alert("Please fill both Title and Description!");
     } else {
       let taskObj = {};
       taskObj["Title"] = inputTitle;
@@ -24,10 +24,10 @@ const Todo = () => {
     }
   };
 
-  const reset =() =>{
+  const reset = () => {
     setInputTitle("");
     setInputDescription("");
-  }
+  };
 
   const deleteTask = (id) => {
     const updatedItems = items.filter((elem, ind) => {
@@ -37,13 +37,11 @@ const Todo = () => {
   };
 
   const deleteAllTasks = () => {
-    if(items.length===0)
-    {
+    if (items.length === 0) {
       alert("No tasks to delete!");
-    }
-    else{
-    setItems([]);
-    alert("All tasks have been removed successfully!");
+    } else {
+      setItems([]);
+      alert("All tasks have been removed successfully!");
     }
   };
   return (
@@ -64,12 +62,15 @@ const Todo = () => {
                 onChange={(e) => setInputTitle(e.target.value)}
                 placeholder="Add Title"
               />
-              <textarea
-                rows="4"
+              <input type="text"
+                // rows="4"
                 className="textField"
                 placeholder="Add Description"
                 value={inputDescription}
-                onChange={(e) => setInputDescription(e.target.value)}
+                onChange={(e) => {
+                  
+                  setInputDescription(e.target.value);
+                }}
               />
             </div>
             <div className="buttonWrapper flex">
