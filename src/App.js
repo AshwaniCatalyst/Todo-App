@@ -1,8 +1,10 @@
-import Todo from './component/todo';
+// import Todo from './component/todo';
+import Todo1 from './Pages/Todo';
 function App() {
   return (
     <div className="App">
-    <Todo />
+    {/* <Todo /> */}
+    < Todo1 />
     </div>
   );
 }

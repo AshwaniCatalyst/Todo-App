@@ -1,4 +1,5 @@
 import "./todo.css";
+import InputField from "./InputField/InputField";
 import React, { useState, useEffect } from "react";
 
 const Todo = () => {
@@ -8,12 +9,12 @@ const Todo = () => {
   useEffect(() => {
     if (items.length === 0) {
     } else {
-      // alert("Tasks updated successfully!");
+      alert("Tasks updated successfully!");
     }
   }, [items]);
   const addItem = () => {
     if (!inputTitle || !inputDescription) {
-      // alert("Please fill both Title and Description!");
+      alert("Please fill both Title and Description!");
     } else {
       let taskObj = {};
       taskObj["Title"] = inputTitle;
@@ -55,6 +56,8 @@ const Todo = () => {
           </div>
           <div className="addTasks flex">
             <div className="inputTextWrapper flex ">
+            <InputField  placeholder="Add Title"/>
+            <InputField  placeholder="Add Description"/>
               <input
                 type="text"
                 className="textField"
@@ -90,7 +93,7 @@ const Todo = () => {
                       onClick={() => deleteTask(ind)}
                     ></i>
                   </span>
-                  <h2>{obj.Title}</h2>
+                  <h2>{obj.Title} <span><input type="checkbox" /></span></h2>
                   <h4>{obj.Description}</h4>
                 </div>
               );
