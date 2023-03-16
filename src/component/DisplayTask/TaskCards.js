@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../component/todo.css'
+import '../todo.css'
 const TaskCards = ({Task, setTask}) => {
   const deleteTask=(id)=>{
     const updatedTasks = Task.filter((elem, index) => {

@@ -1,7 +1,7 @@
 import React ,{useState} from 'react'
 import '../component/todo.css'
 import TaskForm from '../component/TaskForm'
-import TaskCards from '../component/InputField/DisplayTask/TaskCards'
+import TaskCards from '../component/DisplayTask/TaskCards'
 const Todo1 = () => {
     const[Task, setTask] = useState([]);
   return (
